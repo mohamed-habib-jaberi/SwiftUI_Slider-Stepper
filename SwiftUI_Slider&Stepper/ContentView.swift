@@ -1,4 +1,4 @@
-//
+ //
 //  ContentView.swift
 //  SwiftUI_Slider&Stepper
 //
@@ -9,8 +9,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+   @State private var orderCount = 0
+    @State private var houseTemperature: Double = 0
+    
     var body: some View {
-        Text("Hello, World!")
+    VStack {
+//        Stepper(onIncrement: {
+//            self.orderCount += 1
+//        }, onDecrement: {
+//             self.orderCount -= 1
+//        }) {
+//            Text("Set order amount")
+//        }
+        
+   
+            Stepper("Set order amount", value: $orderCount)
+             Text("Current order amount: \(orderCount)")
+        //Slider(value: $houseTemperature)
+        Slider(value: $houseTemperature, in: (10...20))
+        Text("\(houseTemperature)")
+        }
+        
+       
     }
 }
 
